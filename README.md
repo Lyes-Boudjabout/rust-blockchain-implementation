@@ -37,8 +37,8 @@ The project is structured as a library + binary hybrid to support modularity and
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Lyes-Boudjabout/rust-blockchain-implementation.git
-    cd rust-blockchain-implementation
+    git clone https://github.com/Lyes-Boudjabout/rust-blockchain-simulation.git
+    cd rust-blockchain-simulation
     ```
 
 2.  **Build the project:**
