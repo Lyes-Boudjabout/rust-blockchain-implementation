@@ -10,18 +10,23 @@ A functional, multi-threaded blockchain simulation written in **Rust**. This pro
 * **Merkle Trees:** Efficiently verifies the integrity of transactions within a block.
 * **Concurrency:** Uses Rust's `Arc` and `Mutex` to simulate a decentralized network with multiple threads acting as independent nodes.
 * **Attack Simulations:** Includes built-in scenarios that actively attempt to forge signatures and tamper with ledger data to demonstrate security defenses.
+* **Integration Tests:** Includes a dedicated test suite verifying logic robustness.
 
 ## 📂 Project Structure
 
-The logic is modularized for clarity and separation of concerns:
+The project is structured as a library + binary hybrid to support modularity and integration testing.
 
-| File | Description |
+| File/Folder | Description |
 | :--- | :--- |
 | `src/main.rs` | **The Orchestrator.** Runs the multi-threaded simulation and attack scenarios. |
-| `src/wallet.rs` | **Identity.** Manages User structs and generates RSA Public/Private key pairs. |
-| `src/transaction.rs` | **The Data.** Handles transaction creation, SHA-256 hashing, and RSA signing/verification. |
-| `src/block.rs` | **The Container.** Handles Merkle Root calculation and the Mining loop (Proof of Work). |
-| `src/blockchain.rs` | **The Ledger.** Manages the chain vector and block linking. |
+| `src/lib.rs` | **Library Entry.** Exposes the core modules for external use (tests). |
+| `src/utils/` | **Core Logic Modules.** Contains the business logic. |
+| ├── `wallet.rs` | **Identity.** Manages User structs and generates RSA Key Pairs. |
+| ├── `transaction.rs` | **The Data.** Handles SHA-256 hashing and RSA signing/verification. |
+| ├── `block.rs` | **The Container.** Handles Merkle Root calculation and Mining (PoW). |
+| └── `blockchain.rs` | **The Ledger.** Manages the chain vector and block linking. |
+| `tests/` | **Integration Tests.** |
+| └── `simulation_tests.rs` | Validates signatures, mining difficulty, and tampering detection. |
 
 ## 🛠️ Prerequisites
 
@@ -32,8 +37,8 @@ The logic is modularized for clarity and separation of concerns:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/rust-blockchain-sim.git](https://github.com/your-username/rust-blockchain-sim.git)
-    cd rust-blockchain-sim
+    git clone https://github.com/Lyes-Boudjabout/rust-blockchain-implementation.git
+    cd rust-blockchain-implementation
     ```
 
 2.  **Build the project:**
@@ -46,9 +51,14 @@ The logic is modularized for clarity and separation of concerns:
     cargo run
     ```
 
+4.  **Run the Test Suite:**
+    ```bash
+    cargo test
+    ```
+
 ## 🖥️ Simulation Scenarios
 
-When you run the program, it executes four distinct scenarios to test the system:
+When you run the program (`cargo run`), it executes four distinct scenarios to test the system:
 
 ### 1. Genesis Block
 **Action:** User 0 creates the first transaction to bootstrap the network.
@@ -95,7 +105,6 @@ Users initialized.
 Block 0: [Tx: Genesis] [Receiver: 30820...] [Hash: 0c55f...]
 Block 1: [Tx: Pay 50 BTC] [Receiver: 30820...] [Hash: 0908b...]
 ```
-
 ## 📚 Technical Stack
 
 - Language: Rust 2021 Edition
