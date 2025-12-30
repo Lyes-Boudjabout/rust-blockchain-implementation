@@ -1,14 +1,14 @@
-use rust_blockchain_implementation::utils::wallet::User;
-use rust_blockchain_implementation::utils::transaction::Transaction;
-use rust_blockchain_implementation::utils::block::Block;
-use rust_blockchain_implementation::utils::blockchain::Blockchain;
-
 // --- IMPORTS ---
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 use rsa::pkcs8::EncodePublicKey;
 use hex;
+
+use rust_blockchain_implementation::utils::wallet::User;
+use rust_blockchain_implementation::utils::transaction::Transaction;
+use rust_blockchain_implementation::utils::block::Block;
+use rust_blockchain_implementation::utils::blockchain::Blockchain;
 
 fn main() {
     println!("=== RUST BLOCKCHAIN SIMULATION ===\n");
