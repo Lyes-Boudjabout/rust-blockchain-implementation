@@ -5,10 +5,10 @@ use std::time::Duration;
 use rsa::pkcs8::EncodePublicKey;
 use hex;
 
-use rust_blockchain_implementation::utils::wallet::User;
-use rust_blockchain_implementation::utils::transaction::Transaction;
-use rust_blockchain_implementation::utils::block::Block;
-use rust_blockchain_implementation::utils::blockchain::Blockchain;
+use rust_blockchain_simulation::utils::wallet::User;
+use rust_blockchain_simulation::utils::transaction::Transaction;
+use rust_blockchain_simulation::utils::block::Block;
+use rust_blockchain_simulation::utils::blockchain::Blockchain;
 
 fn main() {
     println!("=== RUST BLOCKCHAIN SIMULATION ===\n");

@@ -1,9 +1,9 @@
 // tests/simulation_tests.rs
 
-use rust_blockchain_implementation::utils::wallet::User;
-use rust_blockchain_implementation::utils::transaction::Transaction;
-use rust_blockchain_implementation::utils::block::Block;
-use rust_blockchain_implementation::utils::blockchain::Blockchain;
+use rust_blockchain_simulation::utils::wallet::User;
+use rust_blockchain_simulation::utils::transaction::Transaction;
+use rust_blockchain_simulation::utils::block::Block;
+use rust_blockchain_simulation::utils::blockchain::Blockchain;
 use rsa::pkcs8::EncodePublicKey;
 
 // --- TEST 1: TRANSACTION SIGNATURES ---
